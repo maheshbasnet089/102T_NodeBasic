@@ -3,16 +3,26 @@ const app = express()
 // ALTERNATIVE 
 //   const app = require("express")()
 
+// saying nodejs to set all required config for ejs (to use ejs)
+
+app.set("view engine","ejs")
+
 app.get("/",(req,res)=>{
-   res.send("<mark> hello world </mark>")
+    const name  = "Manish Basnet"
+   res.render("home",{name :name,profession : "I am a student"})
+  
 })
 
 app.get("/about",(req,res)=>{
-    res.send("About page")
+    res.render("about.ejs")
 })
 
 app.get("/contact",(req,res)=>{
-    res.send("Contact page")
+    res.send("bye bye contanct page")
+})
+
+app.get("/landing",(req,res)=>{
+    res.render("landing.ejs")
 })
 
 
